@@ -1,0 +1,5 @@
+/node_modules/
+/.env
+/uuid.js
+/webdav.js
+/package-lock.json
