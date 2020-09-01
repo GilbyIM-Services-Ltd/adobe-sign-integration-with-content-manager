@@ -33,6 +33,7 @@ require('dotenv').config();
 const { createClient } = require('webdav');
 const axios = require('axios');
 const { v4: uuidv4 } = require('uuid');
+const fs = require("fs"); // currently only used for mimicking the Webhook call.
 
 // define constants
 const adobeSignClientId = process.env['ADOBE_SIGN_CLIENT_ID'];
@@ -55,7 +56,6 @@ const green = escapeCharcters + "[32m";
 const white = escapeCharcters + "[37m";
 
 //set global variables
-var gblAgreementId = 'CBJCHBCAABAAu8bnbPaSu509ee35N2M1jW1FYkE3-kLE';
 var gblCreateRecordJSON = {
 	"RecordTitle":"morningTest",
 	"RecordRecordType":"Document"
@@ -198,9 +198,14 @@ function refreshAdobeAccessToken()
 		console.log(error);
 	});
 }
-		
+
+
+// Get Adobe Sign Webhook JSON data from example file.  In a real-world scenario this would be pased to the event triggered by the Adobe Sign Webhook call.
+
+var fileContents = fs.readFileSync("AdobeSignWebhookExample.json");
+var gblAdobeWebhookJSON = JSON.parse(fileContents);
+var gblAgreementId = gblAdobeWebhookJSON.agreement.id;
+
 refreshAdobeAccessToken();
-
-
 
 	
