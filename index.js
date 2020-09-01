@@ -57,7 +57,7 @@ const white = escapeCharcters + "[37m";
 
 //set global variables
 var gblCreateRecordJSON = {
-	"RecordTitle":"morningTest",
+	"RecordTitle":"Adobe Sign Integration Demo 3",
 	"RecordRecordType":"Document"
 }
 
@@ -152,10 +152,9 @@ function attachDocument(jsonData)
 	}
 
 function downloadAgreementDocument(accessToken, agreementId){
-
 	var config = {
 	  method: 'get',
-	  url: adobeSignBaseUrl + '/api/rest/v6/agreements/' + agreementId + '/documents',
+	  url: adobeSignBaseUrl + '/api/rest/v6/agreements/' + agreementId + '/combinedDocument?attachSupportingDocuments=false',
 	  responseType: 'arraybuffer',
 	  headers: { 
 		'Authorization': 'Bearer ' + accessToken
