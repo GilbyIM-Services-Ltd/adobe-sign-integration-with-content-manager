@@ -57,7 +57,7 @@ const white = escapeCharcters + "[37m";
 
 //set global variables
 var gblCreateRecordJSON = {
-	"RecordTitle":"Adobe Sign Integration Demo 3",
+	"RecordTitle":"Adobe Sign Integration Demo",
 	"RecordRecordType":"Document"
 }
 
